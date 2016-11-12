@@ -51,13 +51,13 @@
         android:layout_weight="1"
         android:background="#27A5F9" >
 
-
-
         <LinearLayout
             android:id="@+id/weather_info_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical" >
 
             <TextView
@@ -72,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:text="@string/beforeWeather"
                     android:layout_width="0dp"
@@ -79,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/weather_desp"
                     android:layout_width="0dp"
@@ -92,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:text="@string/beforequality"
                     android:layout_width="0dp"
@@ -108,10 +111,12 @@
                     android:textColor="#FFF"
                     android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:text="@string/beforepm25"
                     android:layout_width="0dp"
@@ -119,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/pm25"
                     android:layout_width="0dp"
@@ -127,10 +133,12 @@
                     android:textColor="#FFF"
                     android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
+
                 <TextView
                     android:text="@string/beforeTemp"
                     android:layout_width="0dp"
@@ -138,6 +146,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/temp"
                     android:layout_width="0dp"
@@ -147,11 +156,14 @@
                     android:textSize="35sp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/tomorrow_weather_info_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical" >
 
             <TextView
@@ -166,6 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:text="@string/beforeWeather"
                     android:layout_width="0dp"
@@ -173,6 +186,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/tomorrow_weather"
                     android:layout_width="0dp"
@@ -181,10 +195,12 @@
                     android:textColor="#FFF"
                     android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
+
                 <TextView
                     android:text="@string/beforeMaxTmp"
                     android:layout_width="0dp"
@@ -192,6 +208,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/tomorrow_Maxtemp"
                     android:layout_width="0dp"
@@ -200,10 +217,12 @@
                     android:textColor="#FFF"
                     android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
+
                 <TextView
                     android:text="@string/beforeMintmp"
                     android:layout_width="0dp"
@@ -211,6 +230,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/tomorrow_Mintemp"
                     android:layout_width="0dp"
@@ -219,10 +239,12 @@
                     android:textColor="#FFF"
                     android:textSize="35sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
+
                 <TextView
                     android:text="@string/pop"
                     android:layout_width="0dp"
@@ -230,6 +252,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FFF"
                     android:textSize="35sp" />
+
                 <TextView
                     android:id="@+id/tomorrow_pop"
                     android:layout_width="0dp"
@@ -240,5 +263,4 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
 </LinearLayout>
