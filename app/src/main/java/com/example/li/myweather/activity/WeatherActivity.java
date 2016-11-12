@@ -46,6 +46,34 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
      */
     private TextView currentDateText;
     /**
+     * 用于显示空气质量
+     */
+    private TextView quality;
+    /**
+     * 用于显示PM2.5
+     */
+    private TextView pm25;
+    /**
+     * 用于显示明日日期
+     */
+    private TextView tDate;
+    /**
+     * 用于显示明日天气
+     */
+    private TextView tTxt;
+    /**
+     * 用于显示明日高温
+     */
+    private TextView tTmpMax;
+    /**
+     * 用于显示明日低温
+     */
+    private TextView tTmpMin;
+    /**
+     * 用于显示明日降雨概率
+     */
+    private TextView tPop;
+    /**
      * 切换城市按钮
      */
     private Button switchCity;
@@ -70,6 +98,14 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText = (TextView) findViewById(R.id.current_date);
         switchCity = (Button) findViewById(R.id.switch_city);
         refreshWeather = (Button) findViewById(R.id.refresh_weather);
+        quality = (TextView) findViewById(R.id.quality);
+        pm25 = (TextView) findViewById(R.id.pm25);
+
+        tDate = (TextView) findViewById(R.id.tomorrow_date);
+        tTxt = (TextView) findViewById(R.id.tomorrow_weather);
+        tTmpMax = (TextView) findViewById(R.id.tomorrow_Maxtemp);
+        tTmpMin = (TextView) findViewById(R.id.tomorrow_Mintemp);
+        tPop = (TextView) findViewById(R.id.tomorrow_pop);
 
         countyCode = getIntent().getStringExtra("county_code");
 
@@ -167,6 +203,16 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         weatherDespText.setText(prefs.getString("weather_desp", ""));
         publishText.setText(prefs.getString("publish_time", "").substring(10) + "发布");
         currentDateText.setText(prefs.getString("current_date", ""));
+        quality.setText(prefs.getString("quality", ""));
+        pm25.setText(prefs.getString("pm25", ""));
+
+        // 明日信息
+        tDate.setText(prefs.getString("tomorrow_date", ""));
+        tTxt.setText(prefs.getString("tomorrow_txt", ""));
+        tTmpMax.setText(prefs.getString("tomorrow_maxtemp", ""));
+        tTmpMin.setText(prefs.getString("tomorrow_mintemp", ""));
+        tPop.setText(prefs.getString("tomorrow_pop",""));
+
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
         Intent intent = new Intent(this, AutoUpdateService.class);

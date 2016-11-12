@@ -4,4 +4,9 @@
     <string name="action_settings">Settings</string>
     <string name="beforeTemp">温度</string>
     <string name="beforeWeather">天气</string>
+    <string name="beforequality">空气质量</string>
+    <string name="beforepm25">PM2.5</string>
+    <string name="beforeMaxTmp">最高温度</string>
+    <string name="beforeMintmp">最低温度</string>
+    <string name="pop">降雨概率</string>
 </resources>

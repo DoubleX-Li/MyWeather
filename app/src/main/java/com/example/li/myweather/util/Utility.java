@@ -109,13 +109,27 @@ public class Utility {
             //这里应该使用异常防止空指针，可惜还不够熟练
             String cityName = tempJsonObject.getString("city");
             String weatherCode = tempJsonObject.getString("id");//在本程序中不会使用,用城市ID代替，用于自动更新
-            String publishTime = tempJsonObject.getJSONObject("update").getString("utc");
+            String publishTime = tempJsonObject.getJSONObject("update").getString("loc");
 
             tempJsonObject = jsonObject.getJSONObject("now");
             String weatherDesp = tempJsonObject.getJSONObject("cond").getString("txt");
             String temp = tempJsonObject.getString("tmp");
             Log.d("气温", temp);
-            saveWeatherInfo(context, cityName, weatherCode, temp,weatherDesp, publishTime);
+
+            // 拿到空气质量
+            tempJsonObject = jsonObject.getJSONObject("aqi").getJSONObject("city");
+            String pm25 = tempJsonObject.getString("pm25");
+            String qlty = tempJsonObject.getString("qlty");
+
+            // 拿到明日天气
+            tempJsonObject = jsonObject.getJSONArray("daily_forecast").getJSONObject(1);
+            String tDate = tempJsonObject.getString("date");
+            String tTxt = tempJsonObject.getJSONObject("cond").getString("txt_d");
+            String tTmpMax = tempJsonObject.getJSONObject("tmp").getString("max");
+            String tTmpMin = tempJsonObject.getJSONObject("tmp").getString("min");
+            String tPop = tempJsonObject.getString("pop");
+
+            saveWeatherInfo(context, cityName, weatherCode, temp,weatherDesp, publishTime, pm25, qlty, tDate, tTxt, tTmpMax, tTmpMin, tPop);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -125,8 +139,10 @@ public class Utility {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static void saveWeatherInfo(Context context, String cityName, String weatherCode,
-                                       String temp, String weatherDesp, String publishTime) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
+                                       String temp, String weatherDesp, String publishTime,
+                                       String pm25, String qlty, String tDate, String tTxt,
+                                       String tTmpMax, String tTmpMin, String tPop) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d", Locale.CHINA);
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putBoolean("city_selected", true);
         editor.putString("city_name", cityName);
@@ -135,6 +151,13 @@ public class Utility {
         editor.putString("weather_desp", weatherDesp);
         editor.putString("publish_time", publishTime);
         editor.putString("current_date", sdf.format(new Date()));
+        editor.putString("pm25", pm25);
+        editor.putString("quality", qlty);
+        editor.putString("tomorrow_date", tDate);
+        editor.putString("tomorrow_txt", tTxt);
+        editor.putString("tomorrow_maxtemp", tTmpMax + "℃");
+        editor.putString("tomorrow_mintemp", tTmpMin + "℃");
+        editor.putString("tomorrow_pop", tPop + "%");
         editor.commit();
     }
 }
