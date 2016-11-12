@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyWeather</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="beforeTemp">温度</string>
+    <string name="beforeWeather">天气</string>
+</resources>
